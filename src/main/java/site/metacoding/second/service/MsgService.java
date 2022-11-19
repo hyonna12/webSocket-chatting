@@ -25,6 +25,7 @@ import site.metacoding.second.dto.MsgRoom;
 public class MsgService {
   private final ObjectMapper objectMapper;
   private Map<String, MsgRoom> msgRooms;
+  private MsgRoom msgRoom;
   // 서버에 생성된 모든 채핑방의 정보를 모아둠
 
   @PostConstruct
@@ -48,6 +49,7 @@ public class MsgService {
   public MsgRoom createRoom(String name) {
     String roomId = name;
     // 채팅방 객체를 생성하고
+    msgRooms.put(roomId, msgRoom);
     return MsgRoom.builder().roomId(roomId).build();
     // 채팅방 map에 추가
   }
