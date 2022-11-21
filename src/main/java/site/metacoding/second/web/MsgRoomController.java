@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;
-import site.metacoding.second.domain.MsgRoom;
+import site.metacoding.second.domain.ChatRoom;
 import site.metacoding.second.service.MsgService;
 
 // 웹소켓 통신시 필요한 구현과 채팅화면 view 구성을 위한 구현
@@ -31,7 +31,7 @@ public class MsgRoomController {
   }
 
   @GetMapping("/rooms")
-  public List<MsgRoom> rooms() {
+  public List<ChatRoom> rooms() {
     return msgService.findAllRoom();
   }
 
@@ -45,15 +45,15 @@ public class MsgRoomController {
   }
 
   @ApiOperation(value = "방 조회", notes = "room ID를 통해서 방을 조회합니다.")
-  @GetMapping("/room/{roomId")
-  public MsgRoom roomInfo(
+  @GetMapping("/room/{roomId}")
+  public ChatRoom roomInfo(
       @ApiParam(value = "방 ID", required = true) @PathVariable String roomId) {
     return msgService.findById(roomId);
   }
 
   @PostMapping("/room")
   @ResponseBody
-  public MsgRoom createRoom(@RequestParam String name) {
+  public ChatRoom createRoom(@RequestParam String name) {
     return msgService.createRoom(name);
   }
 

@@ -6,17 +6,14 @@ import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBr
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer;
 
-import lombok.extern.slf4j.Slf4j;
-
 // handler를 이용하여 websocket을 활성화하기 위한 config
-@Slf4j
 @Configuration
 @EnableWebSocketMessageBroker // stomp 사용하려고
 public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
   @Override
   public void registerStompEndpoints(StompEndpointRegistry registry) {
-    registry.addEndpoint("/ws-swoomi") // stomp websocket의 연결 endpoint
+    registry.addEndpoint("/ws-stmop") // stomp websocket의 연결 endpoint
         .setAllowedOriginPatterns("*")
         .withSockJS(); // 클라이언트와의 연결을 sockJs로
   }
