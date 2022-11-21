@@ -9,8 +9,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import site.metacoding.second.domain.MsgRoom;
 import site.metacoding.second.dto.Message;
-import site.metacoding.second.dto.MsgRoom;
 import site.metacoding.second.service.MsgService;
 
 // 한 서버에 여러 클라이언트가 접속할 수 있어서 

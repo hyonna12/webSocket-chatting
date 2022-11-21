@@ -1,4 +1,4 @@
-package site.metacoding.second.dto;
+package site.metacoding.second.domain;
 
 import lombok.Getter;
 import lombok.Setter;

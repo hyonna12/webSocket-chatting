@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
-import site.metacoding.second.dto.MsgRoom;
+import site.metacoding.second.domain.MsgRoom;
 import site.metacoding.second.service.MsgService;
 
 // 채팅방의 생성 및 조회는 rest api로 구현

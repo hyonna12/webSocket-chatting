@@ -16,7 +16,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import site.metacoding.second.dto.MsgRoom;
+import site.metacoding.second.domain.MsgRoom;
 
 // 메시징 서비스 구현
 @Slf4j
