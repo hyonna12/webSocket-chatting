@@ -17,9 +17,12 @@ spring:
   output:
     ansi:
       enabled: always
-  
+  freemarker:
+    cache: false
+    template-loader-path: classpath:/templates
+    suffix: .ftlh
+
 logging:
   level:
     "[org.hibernate.SQL]": DEBUG
     #root: DEBUG
-

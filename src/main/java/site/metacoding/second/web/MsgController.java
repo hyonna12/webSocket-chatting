@@ -25,6 +25,8 @@ public class MsgController {
   private final SimpMessageSendingOperations sendingOperations;
 
   @MessageMapping("/comm/message")
+  // websocket으로 들어오는 메시지 발행 처리
+  // 클라이언트가 /pub/comm/message로 발행을 요청하면 msgController가 메시지 받아서 처리
   public void message(Message message) {
     if (Message.MessageType.ENTER.equals(message.getMessageType())) {
       message.setMessage(message.getSender() + "이 입장했습니다.");
