@@ -25,16 +25,17 @@ public class ChatRoomRepository {
   }
 
   public List<ChatRoom> findAllRoom() {
-    List<ChatRoom> chatRooms = new ArrayList(chatRoomMap.values());
+    // 채팅방 생성순서 최근 순으로 반환
+    List<ChatRoom> chatRooms = new ArrayList<>(chatRoomMap.values());
     Collections.reverse(chatRooms);
     return chatRooms;
   }
 
-  public ChatRoom findBtRoomId(String id) {
+  public ChatRoom findRoomById(String id) {
     return chatRoomMap.get(id);
   }
 
-  public ChatRoom createMsgRoom(String name) {
+  public ChatRoom createChatRoom(String name) {
     ChatRoom chatRoom = ChatRoom.create(name);
     chatRoomMap.put(chatRoom.getRoomId(), chatRoom);
     return chatRoom;

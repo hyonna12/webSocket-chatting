@@ -4,6 +4,8 @@ server:
     context-path: /
 
 spring:
+  profiles:
+    active: local
   datasource:
     url: jdbc:mariadb://localhost:3306/greendb
     driver-class-name: org.mariadb.jdbc.Driver
@@ -22,8 +24,11 @@ spring:
       enabled: true
     restart:
       enabled: false
+    add-properties: false
   freemarker:
     cache: false
+    template-loader-path: classpath:/template
+    suffix: .ftl
 
 logging:
   level:
