@@ -12,7 +12,6 @@ import lombok.extern.slf4j.Slf4j;
 import site.metacoding.second.handler.WebSocketHandler;
 
 // handler를 이용하여 websocket을 활성화하기 위한 config
-@Slf4j
 @Configuration
 @RequiredArgsConstructor
 @EnableWebSocket // webcket 활성화

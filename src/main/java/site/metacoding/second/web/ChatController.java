@@ -9,24 +9,24 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
-import site.metacoding.second.dto.MsgRoom;
-import site.metacoding.second.service.MsgService;
+import site.metacoding.second.dto.ChatRoom;
+import site.metacoding.second.service.ChatService;
 
 // 채팅방의 생성 및 조회는 rest api로 구현
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/chat")
-public class MsgController {
+public class ChatController {
 
-  private final MsgService msgService;
+  private final ChatService chatService;
 
   @PostMapping
-  public MsgRoom createRoom(@RequestParam String name) {
-    return msgService.createRoom(name);
+  public ChatRoom createRoom(@RequestParam String name) {
+    return chatService.createRoom(name);
   }
 
   @GetMapping
-  public List<MsgRoom> findAllRoom() {
-    return msgService.findAllRoom();
+  public List<ChatRoom> findAllRoom() {
+    return chatService.findAllRoom();
   }
 }

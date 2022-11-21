@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.annotation.PostConstruct;
 
@@ -16,42 +17,44 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import site.metacoding.second.dto.MsgRoom;
+import site.metacoding.second.dto.ChatRoom;
 
 // 메시징 서비스 구현
 @Slf4j
 @RequiredArgsConstructor
 @Service
-public class MsgService {
+public class ChatService {
   private final ObjectMapper objectMapper;
-  private Map<String, MsgRoom> msgRooms;
-  private MsgRoom msgRoom;
-  // 서버에 생성된 모든 채핑방의 정보를 모아둠
+  private Map<String, ChatRoom> chatRooms;
 
   @PostConstruct
   private void init() {
-    msgRooms = new LinkedHashMap<>();
+    chatRooms = new LinkedHashMap<>();
     // 채팅방의 정보를 HashMap에 저장 - 추후 db로 옮김
   }
 
   // 채팅방 목록
-  public List<MsgRoom> findAllRoom() {
-    return new ArrayList<>(msgRooms.values());
+  public List<ChatRoom> findAllRoom() {
+    return new ArrayList<>(chatRooms.values());
   }
 
   // 채팅방 조회
-  public MsgRoom findById(String roomId) {
-    return msgRooms.get(roomId);
+  public ChatRoom findRoomById(String roomId) {
+    return chatRooms.get(roomId);
     // 채팅방 map에 담긴 정보를 조회
   }
 
   // 채팅방 생성
-  public MsgRoom createRoom(String name) {
-    String roomId = name;
+  public ChatRoom createRoom(String name) {
     // 채팅방 객체를 생성하고
-    msgRooms.put(roomId, msgRoom);
-    return MsgRoom.builder().roomId(roomId).build();
-    // 채팅방 map에 추가
+    String randomId = UUID.randomUUID().toString();
+    ChatRoom chatRoom = ChatRoom.builder()
+        .roomId(randomId)
+        .name(name)
+        .build();
+    chatRooms.put(randomId, chatRoom);
+
+    return chatRoom;
   }
 
   // 메시지 발송
