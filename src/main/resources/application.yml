@@ -3,6 +3,15 @@ server:
   servlet:
     context-path: /
 
+spring:
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: false
+  freemarker:
+    cache: false
+
 logging:
   level:
     "[org.hibernate.SQL]": DEBUG
